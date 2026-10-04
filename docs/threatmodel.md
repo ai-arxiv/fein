@@ -1,4 +1,10 @@
-# FEIN Threat Model
+# Threat Model for FEIN
+
+- **Status:** Draft v.01
+- **Owner:** Amisha Dhatrak
+- **Date:** 2026-10-04
+
+---
 
 ## 1. Purpose
 
