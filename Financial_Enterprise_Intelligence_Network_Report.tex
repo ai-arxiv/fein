@@ -1,0 +1,1180 @@
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage[margin=1in,headheight=15pt]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\else
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setmonofont{Latin Modern Mono}
+\fi
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue,pdftitle={Financial Enterprise Intelligence Network},pdfauthor={Ankur Ravindra Shinde; Shantanu Prakash Dhatrak; Amisha Valmik Dhatrak; Samruddhi Pradip Shekatkar}}
+\definecolor{pkcrimson}{RGB}{176,15,84}
+\definecolor{pkblue}{RGB}{20,20,235}
+\definecolor{pkcyan}{RGB}{0,170,235}
+\setstretch{1.25}
+\emergencystretch=3em
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\setlength{\LTpre}{0pt}\setlength{\LTpost}{0pt}
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\TCB}{TCB}
+\newcommand{\projtitle}{Financial Enterprise Intelligence Network}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\bfseries Financial Enterprise Intelligence Network}
+\fancyfoot[L]{\small\bfseries MCOERC, Nashik, Department of AI \& DS Engineering}
+\fancyfoot[R]{\small\bfseries\thepage}
+\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[L]{\small\bfseries MCOERC, Nashik, Department of AI \& DS Engineering}\fancyfoot[R]{\small\bfseries\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0.4pt}}
+\fancypagestyle{front}{\fancyhf{}\fancyhead[R]{\small\itshape\leftmark}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0pt}}
+
+% ---- certificate header block (logo, college name, ribbon) ----
+\newcommand{\certhead}{%
+\begin{center}
+\includegraphics[height=2.2cm]{images/mcoerc_logo.png}\\[4pt]
+{\large\bfseries\color{pkcyan} Matoshri College of Engineering and Research Centre, Nashik}\\[6pt]
+\includegraphics[width=0.5\textwidth]{images/cert_banner.png}
+\end{center}\vspace{0.1cm}}
+\newcommand{\students}{%
+\begin{center}{\normalsize\bfseries\itshape Ankur Ravindra Shinde [47]\hspace{1em} Shantanu Prakash Dhatrak [65]\\[2pt] Amisha Valmik Dhatrak [74]\hspace{1em} Samruddhi Pradip Shekatkar [75]}\end{center}}
+
+\begin{document}
+\pagenumbering{gobble}
+% ---------------- COVER ----------------
+\thispagestyle{empty}
+\begin{center}
+\vspace*{0.4cm}
+{\LARGE\bfseries A}\\[8pt]
+{\LARGE\bfseries Project Stage I report on}\\[8pt]
+{\Large\bfseries\color{pkcrimson} ``Financial Enterprise Intelligence Network: A Research-Stage Transaction Control Architecture''}\\[22pt]
+{\bfseries Submitted By:}\\[6pt]
+{\large\bfseries\color{pkblue} Ankur Ravindra Shinde [47]}\\
+{\large\bfseries\color{pkblue} Shantanu Prakash Dhatrak [65]}\\
+{\large\bfseries\color{pkblue} Amisha Valmik Dhatrak [74]}\\
+{\large\bfseries\color{pkblue} Samruddhi Pradip Shekatkar [75]}\\[4pt]
+{\large\bfseries B.E. [AI \& DS Engineering]}\\[6pt]
+{\large\bfseries\color{pkcrimson} 2026-27}\\[8pt]
+{\bfseries Guided By:}\\[4pt]
+{\large\bfseries\color{pkcrimson} Dr. Ranjit M. Gawande}\\[8pt]
+\includegraphics[height=3.4cm]{images/mcoerc_logo.png}\\[8pt]
+{\bfseries Department of Artificial Intelligence and Data Science Engineering}\\[6pt]
+{\large\bfseries\color{pkcyan} Matoshri College of Engineering and Research Centre, Odhagaon Nashik-422105}\\[8pt]
+\includegraphics[height=2.9cm]{images/sppu_logo.png}\\[6pt]
+{\large\bfseries Savitribai Phule Pune University}
+\end{center}
+\clearpage
+
+% ---------------- CERTIFICATE 1 ----------------
+\pagestyle{empty}\begin{spacing}{1.0}
+\pagenumbering{roman}\setcounter{page}{1}
+\addcontentsline{toc}{chapter}{Certificate I: Project Report}
+\thispagestyle{empty}
+\certhead
+\noindent{\large\itshape This is to certify that Project Stage I report entitled}\\[4pt]
+\begin{center}{\large\bfseries\itshape\color{pkcrimson} ``Financial Enterprise Intelligence Network: A Research-Stage Transaction Control Architecture''}\end{center}
+\students
+\noindent{\large\itshape Is a record of bonafide work carried out by them, under our guidance, in partial fulfillment of the requirement for the award of Degree of Bachelor of Engineering (Artificial Intelligence and Data Science) at Matoshri College of Engineering and Research Centre, Nashik under the Savitribai Phule Pune University, Pune.}
+
+\vspace{0.8cm}
+\noindent Date: \hspace{0.8cm}/\hspace{0.8cm}/ 2026\hfill Place: Nashik
+
+\vspace{0.6cm}
+\noindent\begin{tabular}{@{}p{0.5\textwidth}p{0.45\textwidth}@{}}
+\dotfill\ & \hfill\dotfill\\[2pt]
+\textbf{Dr. Ranjit M. Gawande} & \hfill\textbf{Mr. Mahesh T. Dhande}\\
+\textbf{Project Guide} & \hfill\textbf{Project Coordinator}\\[16pt]
+\dotfill\ & \hfill\dotfill\\[2pt]
+\textbf{Dr. R. M. Gawande} & \hfill\textbf{Dr. G. K. Kharate}\\
+\textbf{Head of Department} & \hfill\textbf{Principal}
+\end{tabular}
+
+\vspace{0.4cm}
+{\large\bfseries EXAMINATION}\\[14pt]
+\noindent\begin{tabular}{@{}p{0.5\textwidth}p{0.45\textwidth}@{}}
+.............................. & \hfill..............................\\
+\textbf{Sign of External 1} & \hfill\textbf{Sign of External 2}
+\end{tabular}
+\clearpage
+
+% ---------------- CERTIFICATE 2 ----------------
+\addcontentsline{toc}{chapter}{Certificate II: Approval and Examination}
+\thispagestyle{empty}
+\certhead
+\begin{center}{\Large\bfseries Certificate of Approval}\end{center}
+\noindent{\large\itshape The Project Stage I report entitled}\\[4pt]
+\begin{center}{\large\bfseries\itshape\color{pkcrimson} ``Financial Enterprise Intelligence Network: A Research-Stage Transaction Control Architecture''}\end{center}
+\students
+\noindent{\large\itshape submitted by the above students under the guidance of Dr. Ranjit M. Gawande has been examined and is approved as satisfying the Project Stage I requirement for the degree of Bachelor of Engineering (Artificial Intelligence and Data Science) at Matoshri College of Engineering and Research Centre, Nashik, affiliated with Savitribai Phule Pune University, Pune, for the academic year 2026--2027.}
+
+\vspace{0.8cm}
+\noindent Date: \hspace{0.8cm}/\hspace{0.8cm}/ 2026\hfill Place: Nashik
+
+\vspace{1.0cm}
+\noindent\begin{tabular}{@{}p{0.5\textwidth}p{0.45\textwidth}@{}}
+.............................. & \hfill..............................\\
+\textbf{Internal Examiner} & \hfill\textbf{External Examiner 1}\\[14pt]
+.............................. & \hfill..............................\\
+\textbf{External Examiner 2} & \hfill\textbf{Head of Department}\\[14pt]
+.............................. & \\
+\textbf{Principal} &
+\end{tabular}
+
+\vspace{0.6cm}
+\noindent\textbf{Seal of the Institute:}
+\clearpage
+
+\end{spacing}
+\pagestyle{front}
+\chapter*{Acknowledgement}\markboth{Acknowledgement}{}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+We express our sincere gratitude to our project guide, Dr. Ranjit M. Gawande, for his guidance, suggestions, and encouragement throughout the development of the Financial Enterprise Intelligence Network\ project. His direction helped us examine the technical and research challenges involved in coordinating AI agents across organizational boundaries.
+
+We thank Mr. Mahesh T. Dhande, Project Coordinator, and the Department of Artificial Intelligence and Data Science Engineering at Matoshri College of Engineering and Research Centre, Nashik, for their support. We also acknowledge the authors of the research papers, protocol specifications, and technical documents reviewed during this project. Finally, we thank our families and classmates for their encouragement and support.
+\clearpage
+
+\chapter*{Abstract}\markboth{Abstract}{}
+\addcontentsline{toc}{chapter}{Abstract}
+Inter-organizational AI-agent workflows combine capabilities that are often specified separately: agent discovery and communication, agreement formation, evidence evaluation, and financial settlement. A successful message or payment event does not, by itself, demonstrate that a deliverable satisfies the versioned requirements accepted by the parties. This report presents the Financial Enterprise Intelligence Network, a proposed transaction-control architecture centered on a portable Transaction Control Block (\TCB). The record binds transaction identity, agreement and specification commitments, deadline policy, evidence references, typed evaluation outcomes, settlement instructions, and an auditable event history. The report defines candidate state semantics, safety invariants, evaluator-fault handling, rail-capability declarations, and a reproducible evaluation plan. The supplied discrete-event simulation materials describe 80,000 initiated synthetic transactions across eight scenarios and ten seeds per scenario; the companion report records no custody-invariant violations in those runs and 1,948 nonconforming releases under an intentionally corrupted-evaluator scenario. These are model-dependent observations, not estimates of real-world fraud and not proof of production security. Financial Enterprise Intelligence Network is positioned as a research proposal for making transaction-level semantics explicit and testable, not as the invention of escrow-backed agent commerce. The report contributes a structured architecture, testable design hypotheses, explicit validity boundaries, and a replication checklist. Further work is required to establish implementation completeness, statistical robustness, interoperability, legal suitability, and empirical value against contemporary alternatives.
+
+\noindent\textbf{Keywords:} agentic AI; inter-organizational transactions; transaction conformance; evidence integrity; escrow; state machines; reproducible simulation.
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\bfseries Financial Enterprise Intelligence Network}
+\fancyfoot[L]{\small\bfseries MCOERC, Nashik, Department of AI \& DS Engineering}
+\fancyfoot[R]{\small\bfseries\thepage}
+\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\footrulewidth}{0.4pt}
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\section{Background}
+Organizations increasingly use software agents and AI-enabled services to perform tasks such as document validation, compliance screening, claim-pack review, onboarding checks, data enrichment, and workflow automation. A transaction may involve a buyer organization, a provider organization, an agent acting for each party, an independent verifier, and a payment or escrow service. These participants can operate under different policies, jurisdictions, data formats, and operational assumptions.
+
+Existing infrastructure addresses important parts of this problem. Agent protocols support communication and task exchange; identity systems identify principals; reputation systems summarize prior experience; and payment systems move value. The relevant specifications are versioned and evolve, so any implementation claim must pin the exact version reviewed \cite{a2a,mcp,erc8004,erc8183,x402,ap2}. Yet the end-to-end transaction still needs a precise answer to a narrower question: \emph{does the submitted result conform to the specific requirements that the parties agreed to, and what evidence justifies the settlement decision?} Financial Enterprise Intelligence Network is designed to investigate this transaction-level control layer.
+
+\section{Problem Definition}
+The core problem is the lack of a common, portable, auditable transaction record that binds the agreed specification, evidence, deadline rules, conformance decision, and settlement outcome across organizational boundaries. In a loosely coupled agent ecosystem, the buyer may receive a successful protocol response without having a machine-checkable basis for determining whether the deliverable meets the negotiated requirements. A payment rail may execute a transfer without knowing whether the deliverable satisfies business rules.
+
+The project therefore proposes a control architecture that makes the transaction lifecycle explicit and keeps the settlement decision tied to a declared policy and evidence record. The project does not assume that cryptographic authenticity proves semantic correctness, that a reputation score proves delivery quality, or that an agent's ``completed'' status is equivalent to independent conformance.
+
+\section{Objectives}
+\begin{enumerate}[leftmargin=*]
+\item Define a transaction lifecycle that links agreement, authorization, execution, evidence, conformance, settlement, and audit.
+\item Design a portable \TCB\ containing identifiers, specification commitments, deadlines, evidence references, decision records, and settlement bindings.
+\item Specify explicit transaction states and legal state transitions, including timeout, failure, dispute, and recovery paths.
+\item Separate evidence authenticity from evidence sufficiency and from semantic correctness of the delivered work.
+\item Explore deterministic schema and policy validation, cryptographic integrity mechanisms, and an auditable event log.
+\item Build and evaluate a synthetic discrete-event simulation under baseline and adversarial scenarios.
+\item Compare Financial Enterprise Intelligence Network's proposed responsibilities with adjacent systems and protocols without overstating novelty or production maturity.
+\end{enumerate}
+
+\section{Scope}
+The Stage I scope is research, architecture design, and simulation. The project studies multi-organization scenarios, including an Indian insurer purchasing a claim-pack verification service from an independent provider in Singapore and an Indian bank purchasing a KYC/AML pack from a provider in Europe. Other scenarios reuse the same provider with a different specification, allowing the report to examine whether conformance is tied to each transaction rather than inferred from the provider's identity.
+
+The current research scaffold is not a production payment network. Unless separately implemented and tested, real custody, bank connectivity, blockchain settlement, production credentials, Byzantine consensus, human arbitration, and live LLM-based semantic adjudication remain outside the demonstrated scope.
+
+\section{Research Questions}
+\begin{enumerate}[leftmargin=*]
+\item How can transaction state and evidence be represented so that two organizations can independently inspect the same decision record?
+\item Which invariants are required to prevent release before an acceptable conformance decision and to prevent duplicate terminal settlement?
+\item How should the architecture handle late evidence, ambiguous results, verifier failure, message loss, or a disputed transaction?
+\item Which capabilities are supplied by existing protocols and which must be composed or specified at the transaction-control layer?
+\item What trade-offs appear in synthetic workloads when arrival rates, deadlines, message reliability, or evaluator integrity change?
+\end{enumerate}
+
+\section{Working Hypothesis}
+A transaction-control layer with an immutable agreement commitment, explicit state-transition rules, typed verification outcomes, deadline precedence, and auditable evidence references can make cross-organizational agent transactions more inspectable and testable than an implementation that relies only on messaging status, reputation, or a payment event. This is a design hypothesis to be tested through formal invariants and experiments; it is not a claim that Financial Enterprise Intelligence Network already guarantees correctness in all environments.
+
+\section{Dependencies}
+The prototype and research workflow use Python for simulation and service logic; FastAPI is a candidate interface layer; PostgreSQL is a candidate persistent store for transaction state, time-to-action metadata, and evidence logs; JSON Schema and deterministic Python rules support structured validation; SHA-256 supports content commitments; Ed25519 signatures can support authenticity and integrity checks; and Docker can isolate participating organization services. These are architecture choices or implementation targets. Only components present in the actual source code should be described as implemented in a final submission. Work proceeds through literature review, requirements definition, lifecycle and schema design, state-machine implementation, deterministic validation, simulation, adversarial testing, analysis, and documentation; each stage should produce versioned specifications, test vectors, event traces, scenario configurations, and result files.
+
+\chapter{Literature Survey}
+\section{Review Method and Framing}
+The supplied landscape report, structured artifact review, literature survey, synopsis, internal design notes, and reference papers were used to organize prior work by the problem each artifact addresses \cite{feinlandscape,feinreview,feinsurvey,feinsynopsis}. The review distinguishes identity and discovery, communication, negotiation, delegation and authorization, payment and escrow, verification, transaction-level conformance, and audit. The central methodological rule is to avoid treating adjacent capabilities as interchangeable. Version-sensitive protocol references were checked through 24 October 2026; older supplied project artifacts retain their own earlier research cut-off dates.
+
+\section{Related Work}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}}
+\caption{Related research and protocol families}\\
+\toprule
+No. & Work / family & Main contribution & Relevance and limitation for Financial Enterprise Intelligence Network\\
+\midrule
+\endfirsthead
+\toprule No. & Work / family & Main contribution & Relevance and limitation for Financial Enterprise Intelligence Network\\ \midrule
+\endhead
+1 & Beer et al., negotiation in multi-agent systems (1999) & Studies negotiation mechanisms for autonomous agents. & Helps frame agreement formation; agreement alone does not prove delivery conformance.\\
+2 & Ramchurn et al. and computational trust literature & Models trust and reliance in multi-agent interaction. & Useful for partner selection and risk estimation; trust is not a transaction-specific proof of compliance.\\
+3 & A2A and agent interoperability protocols \cite{ehtesham2025} & Surveys MCP, ACP, A2A, and ANP interoperability patterns. & Communication and discovery do not themselves adjudicate transaction-specific settlement.\\
+4 & MCP and tool-authorization ecosystem & Connects models or agents to tools and services. & Useful at the tool boundary; does not define cross-enterprise payment release semantics.\\
+5 & ERC-8004, Trustless Agents & Proposes identity, reputation, and validation registries for agents. & Can complement identity and trust; reputation and validation records must still be bound to a transaction policy.\\
+6 & ERC-8183, Agentic Commerce (draft) & Specifies a job lifecycle with escrow, submission, evaluator completion/rejection, and expiry refund. & Important adjacent prior art; Financial Enterprise Intelligence Network must not claim invention of escrow-backed agent work.\\
+7 & x402 and related HTTP payment patterns & Connects HTTP interactions with payment flows. & Payment facilitation does not, by itself, define enterprise-specific evidence conformance.\\
+8 & AP2 and agentic payment initiatives & Address authorization and payment intent in agentic commerce. & Relevant to authorization and payment provenance; complementary to a transaction-level conformance record.\\
+9 & Agent Contracts and Notarized Agents \cite{ye2026,figuera2026} & Study resource-bounded execution contracts and receiver-attested action receipts. & Adjacent work on constraints and auditability; neither should be treated as a complete Financial Enterprise Intelligence Network implementation.\\
+10 & Financial Enterprise Intelligence Network landscape report and structured review & Organize systems by lifecycle layer and identify the composition gap. & Direct project basis; claims must be checked against each artifact's version and maturity.\\
+\bottomrule
+\end{longtable}
+
+\section{Negotiation and Agreement}
+Multi-agent negotiation research explains how autonomous participants can reach agreements using protocols, bids, constraints, or argumentation \cite{beer1999}. Financial Enterprise Intelligence Network assumes that an agreement needs to be represented in a stable, machine-readable form. The agreed specification should be committed before execution, so that later evidence is checked against the same version rather than against an undocumented or mutable interpretation.
+
+\section{Identity, Trust, and Reputation}
+Identity and reputation mechanisms help an organization decide which agents to discover, authenticate, or engage. Trust and reputation have a substantial multi-agent-systems literature \cite{ramchurn,huynhfire}, while ERC-8004 proposes interoperable identity, reputation, and validation registries for agent ecosystems \cite{erc8004}. They are valuable inputs to risk policy, but they are not substitutes for checking the specific output of a specific transaction. A reputable provider can produce a nonconforming deliverable; a new provider can produce a conforming one. Financial Enterprise Intelligence Network therefore treats reputation as a possible policy input rather than as the sole settlement trigger.
+
+\section{Communication and Interoperability}
+Agent-to-agent protocols and tool protocols help agents exchange messages, discover capabilities, and coordinate tasks \cite{a2a,mcp}. These mechanisms can carry transaction references and evidence pointers, but communication success does not necessarily imply contractual completion. Financial Enterprise Intelligence Network can use such protocols as transport or orchestration layers while keeping transaction state and settlement policy explicit.
+
+\section{Payment, Escrow, and Agent Contracts}
+Escrow-based agent commerce is established adjacent work. ERC-8183 (a draft standard at the time checked) describes jobs with client, provider, evaluator, budget, submission, terminal outcomes, and expiry-based refunds \cite{erc8183}. TessPay independently proposes a verify-then-pay architecture with mandates, evidence predicates, escrow, and rail adapters \cite{tesspay}. Financial Enterprise Intelligence Network should therefore be positioned as a proposed integration and specification architecture focused on portable evidence semantics, explicit deadline precedence, richer decision outcomes, and conformance receipts—not as the invention of ``verify then pay.'' Payment rails also differ in reservation, custody, capture, finality, reversal, refund, and dispute capabilities; these differences should be represented by a capability contract rather than assumed away.
+
+\section{Research Gap and Financial Enterprise Intelligence Network Position}
+The supplied literature review identifies a composition gap between capabilities that are individually available and a complete cross-organizational transaction lifecycle. The defensible research question is whether a portable transaction record and precise control semantics can compose discovery, agreement, evidence checking, and payment interfaces in a reproducible way. The proposed differentiators are:
+\begin{itemize}[leftmargin=*]
+\item a portable \TCB\ with an immutable agreement/specification commitment and replayable event history;
+\item explicit deadlines and precedence rules, including exact-boundary behavior;
+\item three-valued outcomes \texttt{PASS}, \texttt{FAIL}, and \texttt{INCONCLUSIVE}, distinct from evaluator faults;
+\item rail capability declarations for reservation, custody, capture, finality, reversal, and refund;
+\item machine-checkable invariants, conformance test vectors, and adversarial traces.
+\end{itemize}
+These are proposed design choices and require implementation and evaluation. The existence of related protocols means novelty must be framed as composition, semantics, and evaluation—not as a claim that no related system exists.
+
+\section{Summary}
+Prior work supplies important pieces of the agent ecosystem. Financial Enterprise Intelligence Network investigates the transaction-level boundary between the agreed work and the settlement decision. A sound comparison must report each source's maturity and scope and avoid treating draft standards, preprints, simulations, and production deployments as equivalent evidence.
+
+\section{Contribution Statement and Falsifiable Claims}
+The report makes a design contribution rather than a demonstrated product-performance claim. The proposed contribution is a common transaction-control representation that makes the relationship between agreement, evidence, decision, deadline, and settlement explicit across adapters. Its value should be judged against competing designs using observable criteria, not terminology.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}}
+\toprule
+Claim candidate & Evidence needed & Current status \\
+\midrule
+\endfirsthead
+\toprule Claim candidate & Evidence needed & Current status \\
+\midrule
+\endhead
+A transaction can be linked to a fixed specification version & Canonical schema, immutable commitment, mutation tests, and cross-implementation vectors & Proposed; schema-level implementation remains to be verified. \\
+At most one terminal disposition is recorded & Atomic transition implementation, concurrent-race tests, persistent-store tests & Model-level behavior reported; production persistence not established. \\
+Deadline-boundary behavior is deterministic & Exact-before, exact-at, and exact-after tests under a declared clock and ordering model & Strict-before convention is present in the supplied simulation. \\
+Evaluator faults are distinguishable from negative work outcomes & Typed result model, timeout/error tests, and adversarial evaluator experiments & Design requirement; integrated fault model remains incomplete. \\
+Rail differences are explicit rather than hidden & Adapter capability contract and provider-specific contract tests & Proposed. \\
+Financial Enterprise Intelligence Network improves outcomes over a baseline & Preregistered baseline, comparable scenarios, raw data, uncertainty estimates, and independent replication & Not established by the current companion summary. \\
+\bottomrule
+\end{longtable}
+
+The contribution is falsifiable: if an existing protocol plus adapter-specific policy expresses the same semantics with equivalent testability, Financial Enterprise Intelligence Network’s added abstraction may not be justified. Claims of lower unsafe-release rates, fewer unresolved transactions, or lower latency require a defined comparator and statistical analysis; current evidence does not establish superiority.
+
+\chapter{Requirement Analysis}
+\section{Functional Requirements}
+\begin{enumerate}[leftmargin=*]
+\item Create a transaction record with a unique identifier and references to the buyer, provider, evaluator, and applicable organization policies.
+\item Store or commit the agreed specification, version, price or budget, deadline rules, and settlement policy.
+\item Validate request and evidence structure against a declared schema.
+\item Record evidence references and cryptographic commitments without confusing hashes with proof of semantic correctness.
+\item Evaluate deterministic conformance rules and return \texttt{PASS}, \texttt{FAIL}, or \texttt{INCONCLUSIVE}.
+\item Maintain an append-only or tamper-evident event history.
+\item Permit only valid state transitions and ensure that a transaction has at most one terminal disposition.
+\item Apply settlement or refund only when the configured policy and rail capability permit it.
+\item Expose transaction state and receipts through an API or report interface.
+\item Support simulation and test scenarios for deadline, messaging, evaluator, and load failures.
+\end{enumerate}
+
+\section{Non-Functional Requirements}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Integrity:} bind the evidence and decision to a transaction and specification version.
+\item \textbf{Auditability:} make the event history, decision reason, timestamps, and settlement reference inspectable.
+\item \textbf{Reliability:} define recovery and timeout behavior rather than leaving it implicit.
+\item \textbf{Security:} authenticate callers, protect secrets, validate inputs, and enforce authorization on each transition.
+\item \textbf{Interoperability:} use documented schemas and stable identifiers across services.
+\item \textbf{Maintainability:} separate orchestration, policy, evidence, persistence, and rail adapters.
+\item \textbf{Reproducibility:} version scenario parameters, random seeds, code, and result artifacts.
+\item \textbf{Privacy:} store minimum necessary personal or financial data and use references or commitments where possible.
+\end{itemize}
+
+\section{Hardware Requirements}
+A development laptop or workstation with a modern multi-core CPU, at least 8 GB RAM (16 GB recommended), adequate disk space, and internet access for package installation and research is sufficient for the simulation-stage work. No dedicated quantum or specialized hardware is required. Resource needs will depend on simulation scale and any future cryptographic or LLM components.
+
+\section{Software Requirements}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.63\textwidth}}
+\toprule Component & Purpose / status\\
+\midrule
+Python & Simulation, deterministic rules, API and test logic.\\
+SimPy & Discrete-event simulation dependency for the supplied scaffold.\\
+FastAPI & Candidate REST API layer for a prototype.\\
+PostgreSQL & Candidate durable storage for transaction state and audit metadata.\\
+JSON Schema & Structural validation of transaction and evidence documents.\\
+SHA-256 / Ed25519 & Content commitment and digital-signature mechanisms, if implemented and correctly keyed.\\
+Docker & Isolated local services representing organizations.\\
+Git & Version control and reproducible development.\\
+\bottomrule
+\end{longtable}
+The table identifies the planned stack; it is not a claim that every component is already integrated in the simulation scaffold.
+
+\section{External Interfaces}
+The proposed system includes organization-facing REST endpoints, an evidence submission interface, an evaluator interface, a persistence layer, and a payment-rail adapter boundary. The API should return a transaction identifier, current state, permitted next actions, decision status, reason codes, and a receipt reference. External payment or custody integrations must be treated as adapters with documented capabilities and failure behavior.
+
+\section{Constraints and Assumptions}
+The Stage I simulation assumes a serialized, honest escrow authority and does not model Byzantine consensus. Synthetic organizations and transactions do not represent measured banking populations. A hash can reveal a changed byte sequence when compared with a trusted commitment, but it cannot prove that a document is truthful or that work is semantically correct. A digital signature establishes a relationship between a message and a signing key; identity binding and key management remain separate requirements.
+
+\chapter{Proposed System and Architecture}
+\section{Overview}
+Financial Enterprise Intelligence Network is proposed as a transaction-control layer between participating enterprise agents and payment or escrow services. It does not replace every communication, identity, or payment protocol. Instead, it binds these components to a shared transaction record and explicit decision rules.
+
+\section{High-Level Architecture}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/img_arch.jpg}
+\caption{FEIN five-layer architecture: agent communication, Conformance Transaction Protocol (CTP), conditional settlement, Conformance Governance Framework (CGF), and infrastructure foundation.}
+\label{fig:arch}
+\end{figure}
+
+Figure~\ref{fig:arch} places the proposal in five layers. \textbf{Layer 1 (Agent Communication)} covers agent discovery through agent cards, capability negotiation, task or agreement creation, A2A/MCP message exchange, and completion notification. \textbf{Layer 2 (CTP)} carries the agreement specification, cryptographic authorization scoped to a counterparty and task, execution, evidence submission, independent conformance verification, and an outcome decision. \textbf{Layer 3 (Conditional Settlement)} covers value lock in escrow, an escrow contract or bank hold, a verifier-decision oracle, conditional release (release on PASS, refund on FAIL), and settlement finality on the chosen rail. \textbf{Layer 4 (CGF)} supplies verifier registry and accreditation, standards and policies, identity and trust credentials, audit and transparency, reputation and incentives, and dispute resolution. \textbf{Layer 5 (Infrastructure Foundation)} provides identity (DID/VC/PKI), a permissioned ledger, secure storage, an interoperability layer, and monitoring. External payment rails, identity providers, regulatory systems, and market-data providers sit outside the five layers, and regulators, auditors, risk teams, and operators act as observers.
+
+The figure also lists ledger-based and tokenized settlement options and a ``Partial'' outcome. In this report these are treated as proposed design options: the formal semantics in Chapter~\ref{chap:formal} use \texttt{PASS}, \texttt{FAIL}, and \texttt{INCONCLUSIVE}, and the supplied simulation does not implement a ledger, tokenized escrow, or partial settlement.
+
+\subsection*{Nine-Stage Transaction Pipeline}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/img_pipeline.png}
+\caption{End-to-end FEIN transaction pipeline between a buyer organization (Org A) and a seller organization (Org B), with data stores D1--D3 and the payment/settlement rail.}
+\label{fig:pipeline}
+\end{figure}
+
+Figure~\ref{fig:pipeline} traces one transaction through nine stages: (1) discovery and negotiation using a NANDA index and A2A; (2) transaction control, which issues the transaction identifier (TID), specification hash, time-to-live (TTL), and risk ceiling; (3) capital and deliverable lock by the buyer and seller; (4) verifier selection, recorded by verifier identifier; (5) an escrow or trust ledger described as a stateless 2-of-3 multi-party computation (MPC) among buyer, seller, and verifier; (6) conformance verification returning PASS, FAIL, or REVIEW; (7) a settlement coordinator that releases or holds funds; (8) an audit and receipt step that appends and stores the record; and (9) a token and reputation ledger that updates trust and history before the payment rail executes settlement. The outcome is returned to the buyer as a settlement/outcome record. Three data stores support the pipeline: D1 (transaction and time-to-action store), D2 (evidence and conformance store), and D3 (audit and reputation ledger). The 2-of-3 MPC escrow and the NANDA-based discovery are architectural proposals; the Stage~I simulation assumes a serialized, honest escrow authority and does not implement them.
+
+
+\section{Transaction Control Block}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_tcb.png}
+\caption{Fields bound together in a portable transaction record.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\textwidth]{images/img_tcbdark.jpg}
+\caption{Cross-organization view: domestic runtimes of Org A and Org B, the Transaction Control Block, stateless 2-of-3 MPC escrow, and the atomic settlement coordinator.}
+\label{fig:tcbflow}
+\end{figure}
+
+Figure~\ref{fig:tcbflow} shows how the \TCB\ sits between two organizations. Each organization operates a domestic runtime; discovery uses a NANDA index and negotiation uses A2A. Org A locks a capital commitment and Org B locks a deliverable hash into the \TCB, which carries the transaction identifier, contract hash, verifier identifier, time-to-live, and risk ceiling. The escrow is shown as a stateless 2-of-3 MPC among buyer, seller, and the selected verifier. A settlement coordinator, described in the figure as an atomic delivery-versus-payment (DvP) arbiter, then appends the receipt, commits the token log, and executes the fund transfer through an AP2-style payment path back to the seller. These components are proposed design elements; their cryptographic and atomicity properties are not established by the figure and require specification and testing.
+
+A proposed \TCB\ contains at least:
+\begin{itemize}[leftmargin=*]
+\item transaction identifier and schema version;
+\item buyer, provider, evaluator, and organization identifiers;
+\item agreement and specification version plus a cryptographic commitment;
+\item amount, currency/token reference, and settlement policy identifier;
+\item submission, decision, challenge, and hard deadlines with precedence rules;
+\item evidence manifest, content hashes, signer/key references, and timestamps;
+\item typed verdict, reason codes, evaluator identity, and evaluator execution status;
+\item ordered event references and final settlement/refund receipt.
+\end{itemize}
+\section{Lifecycle and State Model}
+The conceptual lifecycle is \texttt{INITIATED} $\rightarrow$ \texttt{AGREED} $\rightarrow$ \texttt{AUTHORIZED} $\rightarrow$ \path{FUNDS_HELD} $\rightarrow$ \texttt{EXECUTING} $\rightarrow$ \path{EVIDENCE_SUBMITTED} $\rightarrow$ \texttt{VERIFYING}.\par
+A valid decision may lead to \path{SETTLEMENT_PENDING} and then \path{SETTLED_RELEASED}; a failed or expired transaction may lead to \path{SETTLED_REFUNDED}. Ambiguous evidence or contested outcomes may lead to \texttt{REVIEW} or \texttt{DISPUTED}. These labels are Financial Enterprise Intelligence Network design terminology, not an assertion that every external protocol uses the same state names.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_lifecycle.png}
+\caption{Simplified lifecycle of the Financial Enterprise Intelligence Network. Exact transitions and deadlines must be formalized in the implementation specification.}
+\end{figure}
+
+\section{Conformance Decision Semantics}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_decision.png}
+\caption{Three-valued conformance decision and separate evaluator-fault path.}
+\end{figure}
+
+The proposed conformance engine returns one of three outcomes:
+\begin{description}[leftmargin=2.5cm,style=nextline]
+\item[\texttt{PASS}] Required checks succeeded under the declared policy and evidence was received within the applicable deadline.
+\item[\texttt{FAIL}] Evidence or output violates one or more explicit requirements.
+\item[\texttt{INCONCLUSIVE}] Evidence is insufficient, contradictory, unavailable, or cannot be evaluated reliably.
+\end{description}
+Evaluator infrastructure errors should be recorded separately from a negative work verdict. An evaluator timeout is not automatically proof that the provider failed; nor should it automatically trigger release. The policy must define whether the transaction moves to review, retries, or follows a pre-agreed recovery path.
+
+\section{Deadline and Settlement Policy}
+Deadlines should be named separately for submission, decision, challenge, and hard recovery. The specification must define exact-boundary behavior (for example, whether evidence at $t=d$ is timely), timezone and clock-source rules, retries, and which deadline takes precedence. Settlement should require all configured preconditions, a permitted state transition, and a rail capability that supports the intended action. A generic interface must not imply that every rail supports reversible escrow or immediate refunds.
+
+\section{Modules}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_modules.png}
+\caption{Module decomposition of the proposed transaction-control architecture.}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Organization Adapter:} translates organization-specific requests and responses into Financial Enterprise Intelligence Network schemas.
+\item \textbf{Transaction Gateway:} authenticates requests and routes permitted actions.
+\item \textbf{Agreement and TCB Manager:} records immutable agreement versions and transaction metadata.
+\item \textbf{Evidence Manager:} accepts evidence manifests and stores references, hashes, and timestamps.
+\item \textbf{Conformance Engine:} applies schema validation and deterministic business rules.
+\item \textbf{State-Machine Controller:} validates state transitions and prevents duplicate terminal disposition.
+\item \textbf{Settlement Adapter:} maps approved outcomes to the documented operations of a selected payment rail.
+\item \textbf{Audit, Receipt, and Test Harness:} emits transaction receipts and event records and supports controlled workloads and adversarial scenarios.
+\end{enumerate}
+
+\section{Governed Cross-Organizational Delegation and Inference}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/img_ctpcgf.jpg}
+\caption{Org A to Org B delegation and inference: CTP carries structured delegation and context; Org B's CGF evaluates it against local governance and returns ALLOW, DENY, or ESCALATE.}
+\label{fig:ctpcgf}
+\end{figure}
+% NOTE: this figure expands CTP/CGF as "Cross-Transaction Protocol"/"Cross-Governance Framework" and the architecture figure uses "Conformance ..." -- regenerate one figure so the expansions match.
+Figure~\ref{fig:ctpcgf} separates \emph{carrying} a request from \emph{deciding} on it. An agent in Org A creates a request context (requested action, resource or data, purpose, constraints, and evidence such as an authentication token or certificate) (step~1) and sends it through the transaction protocol (step~2). The protocol layer carries agent identity, organization representation, capability or authority, the requested action and resource, context and constraints, and evidence; it does not decide. The request is forwarded to Org B's governance framework (step~3), which evaluates identity validity, capability authority, policy, data governance, risk and context, and constraints (step~4), returns a decision with a reason (step~5), executes or responds if allowed (step~6), and returns the decision and reason to Org A (step~7). Requests, evidence, policies, decisions, and reasons are logged on both sides for audit and dispute resolution.
+
+The figure summarizes the inference as: delegated intent $+$ capability $+$ context and evidence $+$ organizational governance $=$ authorization decision (\texttt{ALLOW}, \texttt{DENY}, or \texttt{ESCALATE}). This authorization decision is distinct from the conformance verdict (\texttt{PASS}, \texttt{FAIL}, \texttt{INCONCLUSIVE}) defined earlier: the first decides whether a request may proceed, the second whether a delivered result satisfied the agreed specification. Each organization retains control of its own policies and data. The behavior shown is a proposed design and has not been implemented or evaluated in the Stage~I simulation.
+
+\chapter{Algorithms and Mathematical Model}
+\section{Algorithm I: Transaction Validation and State Transition}
+\textbf{Input:} transaction record $T$, requested event $e$, actor identity $a$, evidence manifest $M$, current time $t$.\\
+\textbf{Output:} accepted transition or a rejection with reason code.
+\begin{enumerate}[leftmargin=*]
+\item Load the transaction and its current version.
+\item Authenticate the actor and check authorization for event $e$.
+\item Validate the event against the permitted-transition table.
+\item Validate schema, required fields, version, and agreement commitment.
+\item Apply deadline precedence and reject late or replayed submissions.
+\item Atomically record the event and new state; reject concurrent attempts that conflict with the current version.
+\item If the event is terminal, ensure that no prior terminal disposition exists.
+\item Return the new state and an audit receipt.
+\end{enumerate}
+
+\section{Algorithm II: Conformance-Gated Settlement}
+\textbf{Input:} transaction $T$, evidence $E$, policy $P$, rail capabilities $R$.\\
+\textbf{Output:} \texttt{RELEASE}, \texttt{REFUND}, \texttt{REVIEW}, or \texttt{NO ACTION}.
+\begin{enumerate}[leftmargin=*]
+\item Verify that the evidence manifest references the agreed specification version.
+\item Check evidence integrity and signer authorization where signatures are available.
+\item Validate the evidence structure against the declared schema.
+\item Run deterministic rules and record each rule result.
+\item Assign \texttt{PASS}, \texttt{FAIL}, or \texttt{INCONCLUSIVE}; record evaluator errors separately.
+\item If the outcome is \texttt{PASS}, deadlines are satisfied, and the state is eligible, request release only if rail capabilities permit it.
+\item If failure or expiry requires refund under the agreed policy, request refund only if the rail supports that operation.
+\item Otherwise preserve funds/state according to policy and route to review or recovery.
+\item Record the request, rail response, receipt, and any reconciliation requirement.
+\end{enumerate}
+
+\section{Mathematical Model}
+Let a transaction be $T=(id,A,S,D,E,V,R,L)$, where $A$ is the agreement, $S$ is the specification commitment, $D$ is the deadline policy, $E$ is the evidence manifest, $V$ is the conformance outcome, $R$ is the settlement-rail capability contract, and $L$ is the event log. The state at step $k$ is $q_k$ and an event is $e_k$. A transition function is
+\[
+q_{k+1}=\delta(q_k,e_k,T),
+\]
+where $\delta$ is defined only for permitted transitions. Invalid events must leave the transaction state unchanged and produce an audit reason.
+
+A simplified release predicate is
+\[
+\operatorname{ReleaseAllowed}(T)=
+(V=\texttt{PASS})\land \operatorname{Timely}(E,D)
+\land \operatorname{StateEligible}(q)
+\land \operatorname{RailCanRelease}(R).
+\]
+This predicate is necessary but not sufficient for a production-grade financial system: authorization, idempotency, custody semantics, legal holds, reconciliation, and rail-specific failure modes must also be handled.
+
+A terminal-state safety invariant is
+\[
+\forall T,\quad \#\{\text{terminal dispositions for }T\}\leq 1.
+\]
+A no-release-before-pass invariant is
+\[
+\operatorname{Release}(T)\Rightarrow
+(V=\texttt{PASS})\land\operatorname{StateEligible}(T).
+\]
+A specification-binding invariant is
+\[
+\operatorname{EvaluatedSpecHash}(E)=\operatorname{AgreedSpecHash}(T).
+\]
+These invariants are proposed requirements; each must be translated into executable tests and, where possible, formal verification.
+
+\section{Complexity Considerations}
+For $N$ transactions and a fixed number of constant-time metadata checks, the control overhead can be approximately $O(N)$, excluding evidence parsing, cryptographic operations, database contention, and external calls. If evidence size is $B$, hashing or scanning it is generally linear in $B$. State-vector simulation and LLM evaluation have different costs and should not be folded into a single complexity claim. The actual complexity and latency must be measured in the implementation environment.
+
+\section{Feasibility Study}
+\subsection{Technical Feasibility}
+A local prototype can be built using Python, structured schemas, a database, and a REST API. A discrete-event simulator can explore system behavior without moving real funds. Production readiness would additionally require threat modeling, key management, authorization design, security testing, rail-specific integration, operational monitoring, and legal/compliance review.
+
+\subsection{Operational Feasibility}
+The modular architecture permits each organization to operate an adapter and retain appropriate control of its local systems. Cross-organization deployment requires agreement on schema versions, identity trust, evidence access, data retention, incident response, and dispute handling.
+
+\subsection{Economic Feasibility}
+Stage I work can use open-source software and local compute. Future costs may include hosted databases, cloud execution, external verification services, security audits, compliance reviews, and payment-network integration.
+
+\chapter{System Design}
+\section{Context Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_context.png}
+\caption{Context-level data flow between Financial Enterprise Intelligence Network and external actors.}
+\end{figure}
+
+\section{Data Flow Description}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_dfd1.png}
+\caption{Level 1 data-flow diagram for request, evidence, decision, and settlement exchange.}
+\end{figure}
+
+At the highest level, the buyer submits a request and agrees on a specification. Financial Enterprise Intelligence Network creates the transaction record and routes work to the provider. The provider submits a deliverable and evidence manifest. The conformance engine evaluates the submission, and the state controller decides which next action is legal. If the policy and rail permit settlement, the adapter requests release or refund and records the rail's response. Auditors can inspect the receipt and event history subject to authorization.
+
+\section{Logical Data Model}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_er.png}
+\caption{Logical entity relationships for transaction, evidence, decision, event, and receipt records.}
+\end{figure}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.66\textwidth}}
+\toprule Entity & Important fields\\
+\midrule
+Organization & organization\_id, legal\_name/reference, jurisdiction, trust configuration\\
+Agent & agent\_id, organization\_id, identity reference, capability claims, authorization scope\\
+Transaction & transaction\_id, parties, state, agreement hash, deadlines, policy version, amount, currency\\
+EvidenceItem & evidence\_id, transaction\_id, media type, location/reference, content hash, signer, timestamp\\
+Decision & decision\_id, transaction\_id, outcome, reason codes, evaluator, policy version, time\\
+Event & event\_id, transaction\_id, sequence, event type, actor, timestamp, previous hash, event hash\\
+SettlementReceipt & receipt\_id, transaction\_id, rail reference, action, amount, status, reconciliation state\\
+\bottomrule
+\end{longtable}
+This is a proposed logical model. The final database schema must specify keys, indexes, retention, access controls, and transactional consistency.
+
+\section{Use Cases}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_usecase.png}
+\caption{Use-case view of the main participants and their responsibilities.}
+\end{figure}
+
+\begin{itemize}[leftmargin=*]
+\item Buyer creates a transaction and confirms the specification.
+\item Provider accepts work and submits a deliverable.
+\item Evaluator checks schema, integrity, and declared business rules.
+\item State controller rejects illegal or duplicate transitions.
+\item Settlement adapter requests an allowed release or refund.
+\item Auditor reviews the evidence manifest, decision, and receipt.
+\item Operator retries or reconciles an external rail operation without creating a second disposition.
+\end{itemize}
+
+\section{Activity Flow}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_activity.png}
+\caption{Activity flow for a transaction, including a review path for ambiguous evidence.}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+\item Start transaction and record agreement.
+\item Authorize parties and reserve/hold funds if supported.
+\item Execute the work and collect evidence.
+\item Validate evidence structure, integrity, timeliness, and semantic rules.
+\item If \texttt{PASS}, verify release preconditions; if \texttt{FAIL}, follow rejection/refund policy; if \texttt{INCONCLUSIVE}, move to review/retry.
+\item Record final action and external receipt; reconcile pending or failed rail actions.
+\end{enumerate}
+
+\section{Sequence Diagram}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/img_sequence.png}
+\caption{Sequence diagram of the transaction flow, including PASS, FAIL, and REVIEW alternatives.}
+\label{fig:sequence}
+\end{figure}
+
+Figure~\ref{fig:sequence} gives the message order across the participating components. The buyer sends a transaction request with its specification (1), and transaction control returns a signed transaction authorization token (TAT) with the specification hash (2). Transaction control sends the work request with the TAT and specification to the seller (3), who delivers work with evidence (4). The settlement coordinator submits the work and evidence for verification (5); the conformance engine validates with JSON Schema and deterministic rules (6) and returns PASS, FAIL, or REVIEW (7). In the PASS branch, evidence and the conformance receipt are stored (8), funds are released from escrow to settlement (9), payment to the seller is confirmed (10), and a completion receipt is sent (11). In the FAIL branch, funds are kept on hold or refunded and a failure notice is sent. In the REVIEW branch, the result is notified, a manual review decides PASS or FAIL, and the corresponding branch follows. Data stores D1--D3 and the payment rail are shared across the flow.
+
+\section{Security and Threat Model}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_threat.png}
+\caption{Threat-to-control mapping across the principal trust boundaries.}
+\end{figure}
+
+Threats include forged identity claims, replayed events, altered evidence, conflicting specification versions, malicious or faulty evaluators, duplicate settlement requests, compromised service credentials, schema confusion, message loss, clock disagreement, and unavailable payment rails. Mitigations include authenticated identities, signed requests, versioned schemas, nonce/idempotency keys, content commitments, least privilege, atomic state transitions, audit records, key rotation, rate limits, monitoring, and documented recovery procedures. A hash is only useful when the expected hash is itself protected; a signed record does not make a false statement true. A single evaluator remains a trust assumption unless independent evaluation, challenge, or arbitration is implemented.
+
+\chapter{System Implementation Plan}
+\section{Implementation Status}
+The status vocabulary used in this report is deliberately conservative. \textbf{Implemented} means code is present in the supplied artifact and can be executed or inspected; \textbf{simulated} means represented by the synthetic model; \textbf{proposed} means specified in this report but not demonstrated in an integrated running system; and \textbf{not evaluated} means no evidence is supplied to support a performance or security claim. These labels are not interchangeable.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.42\textwidth}}
+\toprule
+Capability & Evidence status & Interpretation \\
+\midrule
+\endfirsthead
+\toprule Capability & Evidence status & Interpretation \\
+\midrule
+\endhead
+Discrete-event lifecycle and scenario logic & Implemented in supplied scaffold & Inspect and execute the exact script revision before quoting results. \\
+Eight synthetic scenarios & Implemented in model & Scenario names and parameters are model inputs, not real-world population labels. \\
+Transaction Control Block schema & Proposed & The report gives a field catalogue; a versioned machine-readable schema and compatibility tests remain required. \\
+FastAPI service & Proposed unless separately verified & Do not imply a deployable API from an architecture diagram alone. \\
+PostgreSQL persistence & Proposed unless separately verified & Durable event semantics, migrations, and concurrency behavior require integration tests. \\
+SHA-256 and Ed25519 & Proposed controls & Correct key custody, canonicalization, rotation, and signature verification are not established by naming algorithms. \\
+Live payment/escrow integration & Not demonstrated & No production banking, token, custody, or settlement connection is established by the supplied simulation. \\
+Independent evaluator or arbitration network & Not demonstrated & Corrupted-evaluator results show a trust boundary, not a solved evaluator problem. \\
+\bottomrule
+\end{longtable}
+
+The supplied research materials include a Python discrete-event simulation scaffold. The scaffold is explicitly a synthetic model and should not be described as a complete production Financial Enterprise Intelligence Network service. Its assumptions include a serialized, honest escrow authority; no Byzantine consensus; no real credentials or proofs; no real bank, token, or payment integration; and no live semantic evaluation by an LLM. A separate prototype plan may use FastAPI, PostgreSQL, Docker, schema validation, and cryptographic libraries, but these should be labelled as planned until integrated and tested.
+
+\section{Proposed Repository Structure}
+\begin{verbatim}
+financial-enterprise-intelligence-network/
+  app/
+    api.py
+    models.py
+    state_machine.py
+    conformance.py
+    evidence.py
+    settlement_adapter.py
+    audit.py
+  schemas/
+    transaction.schema.json
+    evidence.schema.json
+  simulation/
+    financial_enterprise_intelligence_network_sim.py
+    scenarios.py
+    metrics.py
+  tests/
+    test_transitions.py
+    test_deadlines.py
+    test_idempotency.py
+    test_evidence.py
+  migrations/
+  docs/
+    architecture.md
+    threat_model.md
+    experiment_protocol.md
+\end{verbatim}
+
+\section{Development Lifecycle}
+The project follows an iterative lifecycle: requirements and literature review; architecture and schema definition; implementation of state and policy logic; unit and integration testing; simulation; adversarial analysis; documentation; and review. Each iteration should be version-controlled, and any change to state semantics or deadlines should update the conformance test vectors.
+
+\section{Testing Plan}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_pyramid.png}
+\caption{Testing pyramid for the transaction-control implementation plan.}
+\end{figure}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}}
+\toprule Test category & Example test & Expected property\\
+\midrule
+State machine & Attempt illegal transition & State remains unchanged; reason recorded\\
+Idempotency & Repeat settlement command & At most one terminal disposition\\
+Deadline boundary & Submit just before, at, and after deadline & Result follows explicit boundary rule\\
+Integrity & Change evidence after commitment & Integrity mismatch is detected\\
+Schema & Remove required field or use wrong type & Submission rejected or marked invalid\\
+Evaluator error & Evaluator times out or crashes & Fault distinguished from work failure\\
+Ambiguous evidence & Conflicting evidence items & Outcome becomes inconclusive/review per policy\\
+Message loss & Drop selected messages & Retries and eventual state follow declared rules\\
+Concurrency & Competing terminal actions & Atomic guard prevents double disposition\\
+Rail failure & External release/refund unavailable & Pending reconciliation, no fabricated success\\
+\bottomrule
+\end{longtable}
+
+\section{Risk Management}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Overclaiming novelty:} compare with current standards and describe the contribution as a composition and formalization problem.
+\item \textbf{Evaluator dependence:} separate evaluator faults from verdicts; consider independent checks and challenges.
+\item \textbf{False confidence from hashes:} document that hashes establish byte-level commitments, not truth.
+\item \textbf{Rail mismatch:} declare capabilities and failure semantics before enabling settlement.
+\item \textbf{Synthetic-to-real gap:} clearly label simulation assumptions and do not generalize synthetic rates to production.
+\item \textbf{Security and compliance:} do not use real funds or sensitive personal data in an unreviewed prototype.
+\item \textbf{Reproducibility:} save seeds, configuration, software versions, raw event logs, and result summaries.
+\end{itemize}
+
+\chapter{Experiments and Expected Results}
+\section{Purpose}
+The simulation is intended to test state-machine behavior and explore how controllable parameters affect synthetic transactions. It is not intended to estimate real-world fraud prevalence or prove that a production payment network is safe. Results should be reported with the scenario parameters, seeds, sample size, definitions of each metric, and uncertainty across replications.
+
+\section{Scenarios in the Supplied Scaffold}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_scenarios.png}
+\caption{Eight synthetic scenarios used to stress different assumptions in the simulator.}
+\end{figure}
+
+The supplied scaffold describes scenarios including baseline traffic, nonconforming work, buyer default, deadline pressure, ambiguous evidence, colluding evaluator, network partition/message loss, and verifier overload. Parameters include arrival rate, verifier capacity, message-drop probability, submission and decision time-to-live, work multiplier, and injected malicious or collusion probabilities. The exact configured values and output should be taken from the version of the script that is executed.
+
+\section{Metrics}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_metrics.png}
+\caption{Measurement pipeline from raw events to interpretable experiment metrics.}
+\end{figure}
+
+\begin{itemize}[leftmargin=*]
+\item p50, p95, and p99 settlement time;
+\item dispute or review rate;
+\item false-accept and false-reject rates under the simulator's ground-truth assumptions;
+\item good-work refund rate;
+\item number of nonconforming releases;
+\item verifier service time and queueing effects;
+\item message attempts and drops;
+\item duplicate settlement attempts and invariant violations;
+\item escrow exposure measured as fund-unit-seconds;
+\item approximate event-log size.
+\end{itemize}
+
+\section{Reported Simulation Evidence and Interpretation}
+The supplied simulation companion report \cite{feinsimcompanion} reports an experiment of 80,000 initiated synthetic transactions (eight scenarios, ten seeds per scenario, and 1,000 jobs per seed). It reports no implemented custody invariant violations in those runs. It also reports 1,948 nonconforming releases in the injected corrupted-evaluator scenario. This count is a consequence of the scenario's synthetic assumptions and should not be presented as a real-world fraud estimate or as proof that Financial Enterprise Intelligence Network is secure against malicious evaluators. The companion document notes that the displayed latency summary is the mean of per-replication p95 values, not a pooled percentile or a confidence interval. These details should be verified against the exact script and raw results before final submission.
+
+\section{Experiment Design}
+For each scenario, run multiple independent seeds and preserve raw output. Report the median and spread across replications, and distinguish per-replication p95 from pooled p95. Compare a baseline against one changed factor at a time where possible. Run sensitivity analyses for message drops, arrival rate, verifier count, deadlines, evaluator corruption, and ambiguous evidence. Include negative controls and test whether the simulator's invariants are actually asserted, rather than inferred from a clean log.
+
+\section{Expected Results}
+Expected outcomes are that illegal transitions and duplicate terminal actions are rejected, strict deadline behavior is reproducible, network loss and overload increase latency or unresolved cases, and corrupted evaluators can cause incorrect outcomes. These are hypotheses for the synthetic model, not production claims; real rails, production identity/key management, work-quality evaluation, legal disputes, and operational outages remain outside its scope.
+
+\chapter{Applications, Advantages, and Limitations}
+\section{Potential Applications}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Insurance claim-pack validation:} an insurer commissions an independent provider to check a claim pack against a policy schema and match threshold.
+\item \textbf{KYC/AML pack procurement:} a bank requests a pack and checks completeness, format, and time-window constraints.
+\item \textbf{Corporate onboarding:} a provider returns a structured due-diligence package against a transaction-specific checklist.
+\item \textbf{Third-party assurance:} a bank or insurer requests a vendor-assurance package and binds the decision to the requested specification.
+\item \textbf{Cross-border service workflows:} a buyer and provider in different jurisdictions use explicit evidence, deadline, and audit rules while separately satisfying applicable legal requirements.
+\end{enumerate}
+These are proposed scenarios, not validated production use cases.
+
+\section{Advantages}
+\begin{itemize}[leftmargin=*]
+\item Transaction state and permitted actions are explicit.
+\item Evidence is bound to a particular agreement and specification version.
+\item The design separates identity/reputation from transaction-specific conformance.
+\item Typed outcomes allow uncertainty to be represented instead of forcing every case into pass/fail.
+\item Receipts and event histories support audit and debugging.
+\item Modular adapters allow communication, identity, and payment components to evolve independently.
+\item Simulation provides repeatable failure and load experiments before connecting real services.
+\end{itemize}
+
+\section{Limitations}
+\begin{itemize}[leftmargin=*]
+\item A signed or hashed evidence item can still be misleading or semantically wrong.
+\item A malicious evaluator may issue an incorrect verdict unless policy, independent validation, or challenge mechanisms constrain it.
+\item Different payment rails have different custody, finality, reversal, refund, and dispute capabilities.
+\item Cross-border financial transactions require legal, regulatory, privacy, and institutional review.
+\item Semantic conformance for unstructured outputs may require human review or carefully evaluated AI systems.
+\item The simulation does not establish performance or security under real banking workloads.
+\item Full identity, key management, independent verification, settlement integration, and operational recovery require further engineering.
+\end{itemize}
+
+\section{Future Enhancements}
+Future work should include a canonical \TCB\ schema; explicit deadline precedence and test vectors; signed event receipts; independent evidence validation; evaluator fault handling; rail capability contracts; idempotent settlement adapters; replay protection; human challenge and arbitration pathways; threat-model-driven security tests; and a carefully bounded pilot using synthetic or appropriately governed data. Comparisons should include adjacent systems such as ERC-8183 and agent identity/reputation standards at their specific version and maturity.
+
+\chapter{Formal Semantics and Verification Plan}\label{chap:formal}
+\section{Transaction State and Decision Are Separate Dimensions}
+A recurring design risk is to collapse a workflow state, an evaluation verdict, and an external rail status into a single status field. Financial Enterprise Intelligence Network should represent them separately. Workflow state records where the transaction is in its lifecycle; evaluation outcome records what the evaluator concluded about the submitted evidence; rail status records what the external settlement provider acknowledged. This separation avoids treating an evaluator timeout as a finding that the deliverable is bad, or treating an accepted API request as proof that money has settled.
+
+\begin{table}[H]
+\centering
+\caption{Recommended orthogonal status dimensions}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}}
+\toprule
+Dimension & Example values & Meaning \\
+\midrule
+Workflow & CREATED, AGREED, FUNDED, EXECUTING, SUBMITTED, REVIEW, TERMINAL & Lifecycle position of the transaction. \\
+Evaluation & \texttt{NOT\_EVALUATED}, PASS, FAIL, INCONCLUSIVE, \path{EVALUATOR_ERROR} & Result of evidence assessment or failure of the assessment process. \\
+Settlement & \texttt{NOT\_REQUESTED}, PENDING, ACKNOWLEDGED, REJECTED, \path{RECONCILIATION_REQUIRED} & State reported by the rail adapter. \\
+Legal / policy hold & NONE, \path{LEGAL_HOLD}, \texttt{RAIL\_BLOCKED}, DISPUTED & Explicitly authorized hold or escalation state. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The values are a proposed vocabulary, not a claim that all are implemented in the scaffold. A production implementation should define allowed combinations, transition guards, persistence behavior, and recovery semantics for every status dimension.
+
+\section{Safety Invariants}
+The following invariants are suitable candidates for executable assertions. Let $T$ be a transaction, $E(T)$ its accepted evidence set, $D(T)$ its decision, and $S(T)$ its settlement record.
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Single terminal disposition:} a transaction has no more than one committed terminal disposition.
+\[\forall T,\quad \#\operatorname{TerminalDisposition}(T)\leq 1.\]
+\item \textbf{Specification binding:} every accepted evidence manifest and evaluation record identifies the same immutable specification commitment as the agreed transaction.
+\item \textbf{Release guard:} a release request is not emitted unless the policy-required outcome is PASS, required evidence is accepted, the applicable deadline rule is satisfied, and no authorized hold blocks release.
+\item \textbf{No fabricated rail success:} a local decision to request settlement is not equivalent to an external rail acknowledgment.
+\item \textbf{Idempotent command handling:} retrying the same logical command with the same idempotency key does not create a second economic effect.
+\item \textbf{Audit linkage:} every terminal disposition references the decision record, policy version, and rail response or explicitly records that no rail action occurred.
+\end{enumerate}
+
+These properties should be tested at three layers: pure state-machine tests, concurrent persistence tests, and adapter contract tests. Passing unit tests at the first layer does not establish correctness at the other two.
+
+\section{Deadline Semantics}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_deadline.png}
+\caption{Strict-before submission deadline semantics: equality with the deadline is late.}
+\end{figure}
+
+The supplied simulation uses a strict submission convention: evidence must be committed before the submission deadline. For a deadline $d$, an arrival time $t$ is timely exactly when $t<d$; $t=d$ is late. This is a model convention, not a universal legal rule. The specification must also identify which clock supplies $t$, how timestamp precision is handled, whether receipt time or durable-commit time governs, and what happens when a message is received before $d$ but persisted after $d$.
+
+\begin{table}[H]
+\centering
+\caption{Boundary test vectors for a strict-before deadline}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.42\textwidth}}
+\toprule
+Observed commit time & Expected classification & Reason \\
+\midrule
+$d-\epsilon$ & Timely & Commit precedes the deadline. \\
+$d$ & Late & Equality does not satisfy the strict inequality. \\
+$d+\epsilon$ & Late & Commit follows the deadline. \\
+Unknown / unavailable & Inconclusive or review & The system lacks evidence to establish timeliness. \\
+Conflicting trusted timestamps & Review / hold & Ordering cannot be safely inferred without a declared authority rule. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Evaluator Failure Taxonomy}
+A conformance result should distinguish at least four situations: the evidence satisfies the declared predicate; the evidence violates the predicate; the evidence is insufficient or contradictory; and the evaluator itself failed to produce a valid decision. These cases have different operational and economic implications. A timeout should not silently become FAIL unless the agreement explicitly defines that default and explains the resulting allocation of risk. Conversely, INCONCLUSIVE must not automatically trigger release. A conservative default is to withhold automatic release, preserve evidence, and follow an explicit retry, challenge, or human-review policy.
+
+\section{Rail Adapter Contract}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_rail.png}
+\caption{Rail capability negotiation before an adapter attempts conditional settlement.}
+\end{figure}
+
+An adapter should declare its supported capabilities and failure semantics before being selected for a transaction. At minimum, the contract should state whether funds are reserved or held, which party has custody, whether capture is reversible, what event counts as finality, whether refunds are supported, how disputes and chargebacks are represented, how idempotency works, and how long reconciliation may remain unresolved. Unsupported capabilities should be explicit rather than silently emulated. A software timeout cannot override a legal hold or a rail's own finality and reversal rules.
+
+\chapter{Evaluation Protocol and Reproducibility}
+\section{Experimental Unit and Replication}
+The supplied companion material describes eight scenarios, ten seeds per scenario, and 1,000 initiated transactions per seed, for 80,000 initiated synthetic transactions in total. The independent replication unit for uncertainty analysis is the simulation run (scenario-seed pair), not each individual transaction treated as statistically independent. Transactions within a run share configuration and may share queueing conditions, so a confidence interval computed as if all transactions were independent could understate uncertainty.
+
+\section{Metric Definitions}
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
+\toprule
+Metric & Recommended definition & Reporting caution \\
+\midrule
+\endfirsthead
+\toprule Metric & Recommended definition & Reporting caution \\
+\endhead
+Initiated transactions & Number of transactions created by the workload generator & Report separately from completed and settled transactions. \\
+Timely evidence rate & Timely accepted submissions divided by transactions for which submission is required & State how missing or dropped messages are classified. \\
+Nonconforming release count & Releases where ground-truth evidence is nonconforming under the simulator's declared oracle & This is model-defined, not a real-world fraud rate. \\
+Good-work refund rate & Conforming and timely jobs refunded divided by all conforming and timely jobs & Explain the simulator's ground-truth labels and refund rule. \\
+Review / inconclusive rate & Transactions ending in review or an inconclusive evaluation divided by initiated transactions & Keep evaluator errors separate where possible. \\
+Latency percentile & Percentile of a clearly specified end-to-end time variable & Distinguish pooled percentiles from means of per-run percentiles. \\
+Invariant violation count & Number of asserted violations, with a precise assertion definition & A zero count is meaningful only if the invariant is actually checked. \\
+Escrow exposure & Integral of held amount over time, in amount-seconds or a stated unit & Define whether partial settlement and refund are included. \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Statistical Reporting Plan}
+For each scenario, preserve each run's raw metrics and report the number of replications, central tendency, dispersion, and the method used for uncertainty intervals. When comparing two configurations, use paired seeds where the simulator supports it, report the effect size, and avoid relying only on a p-value. A small number of replications should be described as exploratory. Sensitivity analysis should vary one parameter at a time initially, followed by a designed multi-factor experiment if interactions are important. The baseline and all comparison configurations must be versioned with the code.
+
+\section{Minimum Artifact Bundle}
+A reproducible release should contain (i) the exact source revision; (ii) runtime and dependency versions; (iii) scenario configuration and seed list; (iv) raw per-run outputs; (v) a script that regenerates tables and figures; (vi) definitions of metrics and invariants; (vii) a README with exact commands; and (viii) a limitations file stating which real-world mechanisms are not modeled. The output must be regenerable without relying on a manually edited spreadsheet or a screenshot of console output.
+
+\chapter{Security, Privacy, and Governance Considerations}
+\section{Security Objectives and Trust Boundaries}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_trust.png}
+\caption{Security boundary map separating local enterprise systems, the control plane, and external settlement.}
+\end{figure}
+
+The proposed architecture crosses several trust boundaries: an organization authorizes an agent; a provider creates evidence; an evaluator interprets that evidence; a transaction controller records a decision; and an external rail executes or rejects settlement. Each boundary needs its own authentication, authorization, integrity, and failure controls. A single global claim of “trustlessness” would obscure the fact that the system still relies on institutions, keys, evaluators, software correctness, and external payment infrastructure.
+
+\section{Threat-to-Control Traceability}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.32\textwidth}>{\raggedright\arraybackslash}p{0.35\textwidth}}
+\toprule
+Threat & Candidate control & Residual limitation \\
+\midrule
+\endfirsthead
+\toprule Threat & Candidate control & Residual limitation \\
+\endhead
+Evidence alteration & Canonicalization, content commitment, signature validation & Does not establish the truth or completeness of original evidence. \\
+Replay of an old decision & Transaction-scoped nonce, idempotency key, specification version, expiry & Key compromise and incorrect scope validation remain possible. \\
+Evaluator collusion or compromise & Independent checks, separation of duties, challenge path, recorded evaluator identity & Independence is difficult to prove; several evaluators may share the same failure mode. \\
+Specification substitution & Agreement commitment, schema version, signed acceptance event & Parties may disagree about what the specification means; hashes do not resolve interpretation. \\
+Duplicate settlement & Durable idempotency, compare-and-set transition, rail reconciliation & The external rail may have different idempotency guarantees and asynchronous outcomes. \\
+Clock skew / deadline dispute & Authoritative timestamp source and explicit receipt/commit rule & Trusted clock or ordering infrastructure may fail or be contested. \\
+Privacy leakage & Data minimization, access controls, encryption, off-chain storage with limited commitments & Hashes can still leak information through guessing or metadata correlation. \\
+Legal restraint / sanctions hold & Authorized hold state, escalation, immutable reason and actor record & The system cannot replace institution-specific legal and compliance review. \\
+Denial of service & Rate limits, bounded retries, backpressure, circuit breakers & Availability remains dependent on network, verifier, database, and rail providers. \\
+\bottomrule
+\end{longtable}
+
+\section{Privacy and Data Minimization}
+A portable transaction record should not imply that all evidence belongs on a public ledger or in a shared database. The default should be to retain only the fields needed for coordination and audit, reference sensitive evidence through access-controlled storage, and publish commitments only where they are useful and lawful. Even a cryptographic hash can reveal information if the input space is small or guessable. Retention, deletion, cross-border transfer, access logging, and legal-hold obligations must be defined for each deployment jurisdiction and data category.
+
+Governance must identify who may change a specification, appoint an evaluator, initiate a dispute, release a legal hold, or authorize an override. Overrides should be reason-coded and auditable; high-value or regulated transactions may still require institution-approved human review even when the machine-checkable result is PASS.
+
+\chapter{Conclusion}
+The Financial Enterprise Intelligence Network is proposed as a transaction-level control architecture for inter-organizational agent workflows. Its core idea is to bind a negotiated specification, evidence, deadlines, decision semantics, and settlement receipt to a portable transaction record. The project is motivated by the distinction between discovering or communicating with an agent, paying for a job, and independently determining whether the delivered result conforms to the agreement.
+
+The reviewed literature shows that negotiation, identity, reputation, agent communication, and escrow each address important parts of the ecosystem. Financial Enterprise Intelligence Network's research direction is therefore to formalize the interfaces and control semantics needed to compose these capabilities, rather than to claim that the component technologies are new. The supplied simulation provides a way to explore selected failure modes under synthetic assumptions, but does not establish production security or real-world financial performance. The next stage should prioritize schema precision, executable invariants, deadline semantics, evaluator-fault separation, rail-specific recovery, reproducible experiments, and transparent comparison with adjacent protocols.
+
+\appendix
+\chapter{Sample Transaction Receipt}
+\begin{verbatim}
+transaction_id: Financial Enterprise Intelligence Network-DEMO-0001
+schema_version: 0.1
+agreement_commitment: <sha256-of-canonical-agreement>
+specification_commitment: <sha256-of-canonical-specification>
+buyer_org: INSURER-IN
+provider_org: VERIFIER-SG
+evaluator: POLICY-EVALUATOR-01
+evidence_manifest: <reference-to-evidence-list>
+submission_status: RECEIVED
+conformance_outcome: INCONCLUSIVE
+reason_codes:
+  - REQUIRED_FIELD_MISSING
+settlement_action: NO_ACTION
+transaction_state: REVIEW
+event_log_reference: <append-only-log-reference>
+\end{verbatim}
+This is illustrative only and does not represent a real transaction or a deployed receipt schema.
+
+\chapter{Reproducibility Checklist}
+\begin{itemize}[leftmargin=*]
+\item Record repository revision and dependency versions.
+\item Store all scenario parameters and random seeds.
+\item Preserve raw results and event traces.
+\item Define each metric and denominator.
+\item Report replication count and uncertainty.
+\item Distinguish simulated behavior from implemented software behavior.
+\item Re-run tests for deadline boundaries, state invariants, idempotency, and injected evaluator corruption.
+\end{itemize}
+
+\chapter{Transaction Control Block Field Catalogue}
+This appendix is a proposed schema catalogue to guide implementation. It is not a published standard and is not yet a substitute for a machine-readable JSON Schema, canonicalization profile, or conformance suite.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.42\textwidth}}
+\toprule
+Field & Required? & Purpose and validation rule \\
+\midrule
+\endfirsthead
+\toprule Field & Required? & Purpose and validation rule \\
+\endhead
+\path{schema_version} & Yes & Version of the TCB schema; unknown major versions should be rejected or explicitly negotiated. \\
+\path{transaction_id} & Yes & Globally unique transaction identifier; must not be reused for a different agreement. \\
+\path{agreement_commitment} & Yes & Digest of a canonical agreement representation accepted by the parties. \\
+\path{specification_commitment} & Yes & Digest and version of the criteria against which evidence will be evaluated. \\
+\path{buyer_principal} & Yes & Stable identifier of the organization or authorized principal. \\
+\path{provider_principal} & Yes & Stable identifier of the service provider. \\
+\path{evaluator_principal} & Conditional & Required where a distinct evaluator is part of the agreement. \\
+\path{policy_version} & Yes & Version of the decision and settlement policy applied to this transaction. \\
+\path{created_at} & Yes & Timestamp plus declared source and precision; timestamps alone do not prove ordering. \\
+\path{submission_deadline} & Conditional & Deadline and strictness convention for evidence admission. \\
+\path{decision_deadline} & Conditional & Deadline for evaluation; default behavior must be stated separately from submission expiry. \\
+\path{evidence_manifest} & Yes at submission & Ordered or canonical set of evidence references, content digests, media types, and provenance metadata. \\
+\path{evaluation_record} & Yes after evaluation & Evaluator identity, outcome, reason codes, policy version, timestamps, and evidence references. \\
+\path{settlement_instruction} & Conditional & Requested action, amount/currency, beneficiary, rail adapter, and idempotency key; subject to authority checks. \\
+\path{rail_acknowledgement} & After rail response & External reference, response code, and status as received from the rail. \\
+\path{event_history_reference} & Yes & Location or identifier for the tamper-evident event history. \\
+\path{terminal_disposition} & Conditional & Single terminal decision with reason, timestamp, and reference to its decision and settlement evidence. \\
+\bottomrule
+\end{longtable}
+
+\section{Canonicalization and Versioning Rules}
+Before computing a commitment, the implementation must specify canonical byte encoding. At minimum, the rule must define character encoding, Unicode normalization, object-key ordering, number representation, timestamp format, omitted versus null fields, array ordering, and treatment of unknown fields. Without a canonicalization rule, semantically equivalent JSON objects may produce different digests, while different implementations may disagree about what was signed. Schema evolution should use explicit version numbers and compatibility tests. A schema version change must not silently reinterpret already agreed transactions.
+
+\section{Evidence Manifest Minimum}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_evidence.png}
+\caption{Evidence admission chain from source artifact to auditable decision.}
+\end{figure}
+
+Each evidence entry should identify the evidence object, content type, digest algorithm, digest value, source principal, acquisition or creation time, and the verification method applied. Where available, include a signature or attestation reference and the policy that establishes trust in that signer. The manifest should state whether the referenced object is required for acceptance and whether missing evidence yields FAIL, INCONCLUSIVE, or a configured review path. These semantics must be agreed before execution rather than inferred after a dispute.
+
+\chapter{State Transition and Decision Test Vectors}
+The following vectors are acceptance criteria for a future implementation. They are not claims that every vector is already executed by the current project.
+
+\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}}
+\toprule
+Initial condition & Event & Expected result & Assertion \\
+\midrule
+\endfirsthead
+\toprule Initial condition & Event & Expected result & Assertion \\
+\endhead
+CREATED & Agreement accepted by authorized parties & AGREED & Agreement commitment fixed. \\
+AGREED & Funding / hold acknowledged & FUNDED or HELD & External acknowledgement stored; request alone is not success. \\
+EXECUTING & Required evidence committed before deadline & SUBMITTED & Evidence manifest linked to specification commitment. \\
+EXECUTING & Evidence arrives exactly at strict deadline & REVIEW / EXPIRED per policy & Exact-boundary rule is deterministic. \\
+SUBMITTED & Valid evidence and PASS & Eligible for release request & No release if a hold or dispute exists. \\
+SUBMITTED & Evidence violates declared predicate & FAIL & No automatic release under pass-only policy. \\
+SUBMITTED & Conflicting or insufficient evidence & INCONCLUSIVE / REVIEW & Must not be coerced into PASS. \\
+SUBMITTED & Evaluator process crashes & \path{EVALUATOR_ERROR} & Error is distinct from a negative conformance verdict. \\
+Any non-terminal state & Duplicate terminal command & No second terminal effect & State and external idempotency remain consistent. \\
+\path{RELEASE_PENDING} & Rail timeout with unknown outcome & \path{RECONCILIATION_REQUIRED} & Do not issue blind duplicate transfer. \\
+Any state & Unauthorized actor attempts override & Rejected and logged & No privilege escalation. \\
+\path{LEGAL_HOLD} & Deadline expires & Hold remains or escalates per legal policy & Timer cannot silently bypass the hold. \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\section{Negative and Adversarial Test Cases}
+A complete conformance suite should additionally include: a signed evidence object attached to the wrong transaction; a valid digest under an obsolete specification; a replayed PASS decision with a different amount; two concurrent evaluators issuing different results; a database restart between local commit and rail acknowledgement; a rail response received after a client timeout; a missing or rotated signing key; an evidence reference that resolves to changed content; and a legal hold arriving while settlement is pending. For each case, record the initial state, input event, expected state, expected audit event, and whether the external rail may be contacted.
+
+\chapter{Simulation Configuration and Reporting Template}
+The supplied simulation scaffold uses a deterministic pseudorandom seed per run and models a synthetic lifecycle. Its scenario labels should be interpreted as controlled interventions in the simulator, not empirical descriptions of banks or providers.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.37\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
+\toprule
+Scenario family & Intervention represented & Interpretation boundary \\
+\midrule
+\endfirsthead
+\toprule Scenario family & Intervention represented & Interpretation boundary \\
+\endhead
+Baseline & Reference arrival and service behavior & Defines the model's comparison point only. \\
+Nonconforming work / malicious provider & Injected bad-work or policy-violation behavior & Depends on how simulator ground truth is generated. \\
+Buyer default & Some buyers fail to act according to configured probability & Does not model actual buyer behavior prevalence. \\
+Deadline pressure & Tighter deadlines or greater load relative to capacity & Quantifies model response under the chosen settings. \\
+Ambiguous evidence & Evidence does not support a unique clean verdict & Requires explicit mapping to review/inconclusive outcomes. \\
+Corrupted evaluator / collusion & Evaluator decisions are deliberately corrupted under configured conditions & Demonstrates the consequence of a compromised oracle; not a security guarantee. \\
+Partition / message drops & Selected communications fail or are delayed & Does not reproduce every property of real network partitions. \\
+Verifier overload & Verification capacity is constrained relative to arrivals & Queueing results depend on service-time and arrival assumptions. \\
+\bottomrule
+\end{longtable}
+
+\section{Run Record Template}
+For each run, archive: project revision; script hash; Python version; dependency lockfile; scenario name; seed; number of jobs; arrival process; verifier count and service-time distribution; deadline parameters; message-drop and corruption probabilities; start and end timestamps; raw event log; summary JSON; and exit status. If any parameter changes between runs, record the change in the experiment manifest.
+
+\section{Result Table Template}
+\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}}
+\toprule
+Scenario & Runs & Median latency & IQR / interval & Invariant violations \\
+\midrule
+Baseline & To be populated & To be computed & To be computed & To be computed \\
+Nonconforming work & To be populated & To be computed & To be computed & To be computed \\
+Buyer default & To be populated & To be computed & To be computed & To be computed \\
+Deadline pressure & To be populated & To be computed & To be computed & To be computed \\
+Ambiguous evidence & To be populated & To be computed & To be computed & To be computed \\
+Corrupted evaluator & To be populated & To be computed & To be computed & To be computed \\
+Partition / message drops & To be populated & To be computed & To be computed & To be computed \\
+Verifier overload & To be populated & To be computed & To be computed & To be computed \\
+\bottomrule
+\end{longtable}
+\normalsize
+\renewcommand{\arraystretch}{1.2}
+This table is a template and intentionally contains no invented numerical results. Populate it only from preserved raw output and include definitions for latency, interval construction, and invariant checks.
+
+\chapter{International Publication Readiness Checklist}
+A university project report and a peer-reviewed international paper are different artifacts. This report is structured as a detailed technical report for traceability and project assessment. A conference or journal submission will usually require a venue-specific template, a substantially tighter narrative, a clearly delimited original contribution, and a review of current related work. The page limit of this report is not a substitute for a venue's submission rules.
+
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=1pt,parsep=0pt]
+\footnotesize
+\item Confirm every author meets the selected venue's authorship criteria, approve the final manuscript, and agree on author order and affiliations.
+\item Re-run the simulator from a clean environment and preserve raw outputs, seeds, exact code revision, and dependency versions.
+\item Verify every bibliographic entry against its primary publisher, DOI resolver, official protocol page, or arXiv record; remove incomplete working-draft references or cite them transparently as such.
+\item Replace generic protocol-family descriptions with version-specific comparisons and dated retrieval notes for standards that evolve.
+\item Add a transparent comparison matrix against the closest alternatives, including TessPay and ERC-8183, and identify exactly which properties are shared, different, or untested.
+\item Report a baseline and at least one meaningful alternative; define the experimental unit and confidence interval method before interpreting differences.
+\item Add executable state-transition vectors and demonstrate that safety invariants are asserted by code, not merely stated in prose.
+\item Check all claims, figures, tables, and quotations for attribution; obtain permission or use appropriate licenses for reused figures.
+\item Remove claims of production readiness, real-world fraud reduction, or legal compliance unless directly supported by implementation and external evidence.
+\item Select a journal or conference based on scope and read its author instructions before creating a submission version.
+\item Have all authors and the project guide review the technical claims, the bibliography, the figures, and the final PDF.
+\end{itemize}
+\normalsize
+
+\begin{thebibliography}{99}
+\bibitem{beer1999}
+M. Beer, M. d'Inverno, M. Luck, N. Jennings, C. Preist, and M. Schroeder,
+``Negotiation in multi-agent systems,'' \emph{The Knowledge Engineering Review},
+vol. 14, no. 3, pp. 285--290, 1999. doi: \url{https://doi.org/10.1017/S0269888999003021}.
+
+\bibitem{ramchurn}
+S. D. Ramchurn, D. Huynh, and N. R. Jennings,
+``Trust in multi-agent systems,'' \emph{The Knowledge Engineering Review},
+vol. 19, no. 1, pp. 1--25, 2004. Available at: \url{https://www.cambridge.org/core/journals/knowledge-engineering-review/article/abs/trust-in-multiagent-systems/C5B2F5A2B8D66354CB04F2148BF144F2}.
+
+\bibitem{huynhfire}
+T. D. Huynh, N. R. Jennings, and N. R. Shadbolt, ``An integrated trust and reputation model for open multi-agent systems,'' \emph{Autonomous Agents and Multi-Agent Systems}, vol. 13, pp. 119--154, 2006. doi: \url{https://doi.org/10.1007/s10458-005-6825-4}.
+
+\bibitem{ehtesham2025}
+A. Ehtesham, A. Singh, G. K. Gupta, and S. Kumar, ``A survey of agent interoperability protocols: Model Context Protocol (MCP), Agent Communication Protocol (ACP), Agent-to-Agent Protocol (A2A), and Agent Network Protocol (ANP),'' arXiv:2505.02279v2, May 2025. doi: \url{https://doi.org/10.48550/arXiv.2505.02279}. Preprint; verify current version at submission.
+
+\bibitem{ye2026}
+Q. Ye and J. Tan, ``Agent Contracts: A Formal Framework for Resource-Bounded Autonomous AI Systems,'' arXiv:2601.08815, January 2026. Available at: \url{https://arxiv.org/abs/2601.08815}. Preprint; verify current version and publication status at submission.
+
+\bibitem{figuera2026}
+J. Figuera, ``Notarized Agents: Receiver-Attested Confidential Receipts for AI Agent Actions,'' arXiv:2606.04193, June 2026. Available at: \url{https://arxiv.org/abs/2606.04193}. Preprint; verify current version and publication status at submission.
+
+\bibitem{a2a}
+Agent2Agent Protocol Community, ``Agent2Agent (A2A) Protocol Specification,''
+version 1.0.0, 2026. Available at: \url{https://a2a-protocol.org/v1.0.0/specification}.
+Accessed 24 October 2026.
+
+\bibitem{mcp}
+Model Context Protocol maintainers, ``The 2026-07-28 Model Context Protocol Specification,''
+28 July 2026. Available at: \url{https://blog.modelcontextprotocol.io/posts/2026-07-28/}.
+Accessed 24 October 2026; the version identifier is 2026-07-28.
+
+\bibitem{erc8004}
+M. De Rossi, D. Crapis, J. Ellis, and E. Reppel,
+``ERC-8004: Trustless Agents [Draft],'' Ethereum Improvement Proposals, no. 8004,
+August 2025. Available at: \url{https://eips.ethereum.org/EIPS/eip-8004}.
+Accessed October 2026; re-check status at submission time.
+
+\bibitem{erc8183}
+D. Crapis, B. Lim, T. Weixiong, and Z. Chooi,
+``ERC-8183: Agentic Commerce,'' Ethereum Improvement Proposals, draft, February 2026.
+Available at: \url{https://eips.ethereum.org/EIPS/eip-8183}. Accessed October 2026.
+
+\bibitem{x402}
+x402 Foundation, ``x402 Protocol Specification, Version 2,'' 9 December 2025.
+Available at: \url{https://github.com/x402-foundation/x402/blob/main/specs/x402-specification-v2.md}.
+Accessed 24 October 2026.
+
+\bibitem{ap2}
+Google Agentic Commerce, ``Agent Payments Protocol (AP2) Specification,'' version 0.2,
+April 2026. Available at: \url{https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md}.
+Accessed 24 October 2026. The protocol was donated to the FIDO Alliance in 2026; verify governance and version at submission.
+
+\bibitem{feinlandscape}
+\emph{Trustless Inter-Enterprise Agent Coordination and Conformance: A Landscape Report}.
+Project research report supplied with the Financial Enterprise Intelligence Network materials, version dated 27 September 2026.
+
+\bibitem{feinreview}
+\emph{Inter-Organizational Agent Transaction Conformance: A Structured Literature and Artifact Review}.
+Project research report supplied with the Financial Enterprise Intelligence Network materials, 2026.
+
+\bibitem{feinsimcompanion}
+\emph{Financial Enterprise Intelligence Network Simulation Companion}. Project technical artifact supplied with the Financial Enterprise Intelligence Network materials, October 2026. Synthetic simulation report; not peer-reviewed and not independent validation.
+
+\bibitem{feinsurvey}
+\emph{Financial Enterprise Intelligence Network Literature Survey -- Stage I BE Project}.
+Project literature survey supplied with the Financial Enterprise Intelligence Network materials, 2026.
+
+\bibitem{feinsynopsis}
+\emph{Financial Enterprise Intelligence Network: Project Synopsis}.
+Matoshri College of Engineering and Research Centre, Department of AI \& DS Engineering, 2026--2027.
+
+\bibitem{tesspay}
+M. Goenka, T. Pathak, and S. Asthana,
+``TessPay: Verify-then-Pay Infrastructure for Trusted Agentic Commerce,''
+arXiv:2602.00213, January 2026. Available at: \url{https://arxiv.org/abs/2602.00213}.
+Preprint; check for later revisions or peer-reviewed publication before submission.
+
+\end{thebibliography}
+
+\end{document}
